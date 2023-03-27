@@ -8,6 +8,7 @@ import Deatil from './components/Deatil/Deatil';
 import About from './components/About/About'
 import NotFound from './components/NotFound/NotFound'
 import Form from './components/Form/Form';
+import Favorite from './components/Favorite/Favorite';
 
 
 function App() {
@@ -58,6 +59,7 @@ function App() {
          <Route path= "/" element= {<Form login={login} />} />
          <Route path= "/home" element= {<Cards characters={characters} onClose={onClose}/>}/>
          <Route path= "/about" element= {<About/>}/>
+         <Route path= "/favorites" element= {<Favorite/>}/>
          <Route path= "/detail/:id" element= {<Deatil/>}/>
          <Route path='*' element={<NotFound />}/>
          </Routes>
