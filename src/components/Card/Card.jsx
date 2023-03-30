@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { connect, Connect } from 'react-redux';
+import { connect } from 'react-redux';
 import { addFavorite, deleteFavorite } from '../../Redux/actions';
 
 function Card({key,id,name,status,species,gender,origin,image,onClose,addFavorite,deleteFavorite,myFavorites}) {
@@ -26,7 +26,7 @@ function Card({key,id,name,status,species,gender,origin,image,onClose,addFavorit
    }, [myFavorites]);
 
    return (
-      <div>
+      <div Key={key}>
          {
    isFav ? (
       <button onClick={handleFavorite}>❤️</button>

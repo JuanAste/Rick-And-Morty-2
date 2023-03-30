@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import Validation from './Validation';
+import style from './Form.module.css'
 
 const Form = ({login}) => {
 
@@ -28,20 +29,23 @@ const Form = ({login}) => {
     }
 
     return(
-         <form action="" onSubmit={handleSubmit} >
-             <div>
-                <label htmlFor="email">Correo Electrónico:</label>
+        <div className={style.container} >
+         <form className={style.form} onSubmit={handleSubmit} >
+             <div >
+                <label htmlFor="email">Email:</label>
                 <input type="text" name="email" value={userData.email} onChange={handleChange}/>
-                <p>{errors.email}</p>
+                <p className={style.emailError} >{errors.email}</p>
             </div>
-            <div>
+            <div  >
                 <label htmlFor="password">Password:</label>
                 <input type="text" name="password" value={userData.password} onChange={handleChange}/>
+                <p className={style.passwordError} >{errors.password}</p>
             </div>
-            <div>
-                <button>Submit</button>
+            <div >
+                <button className={style.submit} >Submit</button>
             </div>
          </form>
+        </div>
     )
 }
 
