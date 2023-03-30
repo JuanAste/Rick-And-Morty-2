@@ -7,17 +7,21 @@ export default function Nav({onSearch, logOut})  {
 
     return(
         <div className={style.container} >
-            <SearchBar onSearch={onSearch}/>
-            <Link to={"/about"}>
-            <button >About</button>
-            </Link>
+            <div className={style.divButtons}>
+            <SearchBar  onSearch={onSearch}/>
             <Link to={"/home"}>
-            <button >Home</button>
+            <button className={style.buttons} >Home</button>
             </Link>
             <Link to={"/favorites"}>
-            <button >Favorites</button>
+            <button className={style.buttons} >Favorites</button>
             </Link>
-            <button onClick={logOut}>LogOut</button>
+            </div>
+            <div className={style.logOut}>
+            <Link to={"/about"}>
+            <button className={style.buttons} >About</button>
+            </Link>
+            <button className={style.buttons} onClick={logOut}>LogOut</button>
+            </div>
         </div>
     )
 }

@@ -1,0 +1,28 @@
+.search {
+    border: 2px solid rgba(171, 177, 218, 0.071);
+    border-radius: 4px;
+    display: flex;
+    padding: 2px;
+  }
+
+.arow{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 50%;
+}
+
+.agregar{
+    background-color: rgb(15, 15, 15);
+    color: #fff;
+    padding: 10px 30px;
+    transition: background-color 0.4s ease;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.agregar:hover{
+    background-color: #5d6363;
+    color: white;
+}

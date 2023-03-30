@@ -1,4 +1,3 @@
-import './App.css';
 import React, { useEffect } from 'react';
 import axios from 'axios';
 import {Routes, Route, useLocation, useNavigate} from "react-router-dom"
@@ -9,6 +8,7 @@ import About from './components/About/About'
 import NotFound from './components/NotFound/NotFound'
 import Form from './components/Form/Form';
 import Favorite from './components/Favorite/Favorite';
+import style from './App.module.css'
 
 
 function App() {
@@ -53,13 +53,13 @@ function App() {
    }
 
    return (
-      <div className='App'>
+      <div className={style.app}>
          {pathname !== "/" && <Nav onSearch={onSearch} logOut={logOut} />}
          <Routes>
          <Route path= "/" element= {<Form login={login} />} />
          <Route path= "/home" element= {<Cards characters={characters} onClose={onClose}/>}/>
          <Route path= "/about" element= {<About/>}/>
-         <Route path= "/favorites" element= {<Favorite/>}/>
+         <Route path= "/favorites" element= {<Favorite onClose={onClose} />}/>
          <Route path= "/detail/:id" element= {<Deatil/>}/>
          <Route path='*' element={<NotFound />}/>
          </Routes>

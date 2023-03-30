@@ -1,12 +1,18 @@
 import { useSelector, useDispatch } from "react-redux";
 import Card from "../Card/Card";
-import { filterCards, orderCards } from "../../Redux/actions";
+import { filterCards, orderCards, removeFav } from "../../Redux/actions";
 import { useState } from "react";
+import style from './Favorite.module.css'
 
-const Favorite = () => {
+const Favorite = ({onClose}) => {
     const dispatch = useDispatch()
     const favorites = useSelector(state => state.myFavorites)
     const [aux, setAux] = useState(false)
+
+    function closeFavorite(id) {
+        onClose(id);
+        dispatch(removeFav(id));
+      }
 
     const handleOrder = (event) => {
         dispatch(orderCards(event.target.value))
@@ -18,7 +24,8 @@ const Favorite = () => {
     }
 
     return(
-        <div>
+        <div >
+            <div >
             <select onChange={handleOrder}>
                         <option value="order" disabled= "disable">Order by:</option>
                         <option value="A">Ascendente</option>
@@ -31,6 +38,8 @@ const Favorite = () => {
                         <option value="Genderless">Genderless</option>
                         <option value="unknown">unknown</option>
                     </select>
+            </div>
+            <div className={style.favoriteDiv}>
             {favorites.map(({id,name,status,species,gender,origin,image}) => {
                 return(
                     <div>
@@ -43,10 +52,12 @@ const Favorite = () => {
                         gender={gender}
                         origin={origin.name}
                         image={image}
+                        onClose={() => closeFavorite(id)}
                     />
                     </div>
                 )
             })}
+            </div>
         </div>
     )
 }

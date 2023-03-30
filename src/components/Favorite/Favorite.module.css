@@ -1,0 +1,12 @@
+.favoriteDiv{
+    background-color: rgb(230, 17, 17);
+
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 24px;
+    justify-content: space-around;
+}
+
+.algo{
+    display: flex;
+}
