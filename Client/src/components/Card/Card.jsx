@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { addFavorite, deleteFavorite } from '../../Redux/actions';
 import style from './Card.module.css'
 
-function Card({id,name,status,species,gender,origin,image,onClose,addFavorite,deleteFavorite,myFavorites}) {
+function Card({id,name,gender,image,onClose,addFavorite,deleteFavorite,myFavorites}) {
 
    const [isFav, setIsFav] = useState(false);
 
@@ -14,7 +14,7 @@ function Card({id,name,status,species,gender,origin,image,onClose,addFavorite,de
          deleteFavorite(id);
       }else{
          setIsFav(true);
-         addFavorite({id,name,status,species,gender,origin,image,onClose,addFavorite,deleteFavorite})
+         addFavorite({id,name,gender,image,onClose,addFavorite,deleteFavorite})
       }
    }
 

@@ -8,7 +8,7 @@ import About from './components/About/About'
 import NotFound from './components/NotFound/NotFound'
 import Form from './components/Form/Form';
 import Favorite from './components/Favorite/Favorite';
-import style from './App.module.css'
+import style from './App.css'
 
 
 function App() {
@@ -25,8 +25,13 @@ function App() {
    const PASSWORD = 'juan1234';
 
    const onSearch = (id) => {
-      axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
-      if (data.name && !characters.find((char) => char.id === data.id)) {
+
+      if(characters.find((char) => char.id == id)){
+         return alert('personaje repetido');
+      }
+
+      axios(`http://localhost:3001/rickandmorty/character/${id}`).then(({ data }) => {
+      if (data.name) {
          setCharacters((oldChars) => [...oldChars, data]);
       } else {
          alert('¡No hay personajes con este ID!');
@@ -53,7 +58,7 @@ function App() {
    }
 
    return (
-      <div className={style.app}>
+      <div className={style.App}>
          {pathname !== "/" && <Nav onSearch={onSearch} logOut={logOut} />}
          <Routes>
          <Route path= "/" element= {<Form login={login} />} />
