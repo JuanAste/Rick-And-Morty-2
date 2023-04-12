@@ -25,14 +25,7 @@ const rootReducer = (state = inicialState, action) => {
                 myFavorites: action.payload === "A" ? state.allCharacters.sort((a, b) => a.id - b.id) : state.allCharacters.sort((a, b) =>  b.id - a.id)
             }
         case REMOVE_FAV:
-            const newFavorites = state.allCharacters.filter(
-                (ch) => ch.id !== state.payload
-            );
-            return {
-                ...state,
-                myFavorites: state.myFavorites.filter((char) => char.id !== action.payload),
-                allCharacters: state.allCharacters.filter((char) => char.id !== action.payload),
-            };
+            return { ...state, myFavorites: action.payload, allCharacters: action.payload };
         default:
             return {... state};
     }
