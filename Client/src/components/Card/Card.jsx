@@ -14,7 +14,7 @@ function Card({id,name,gender,image,onClose,addFavorite,deleteFavorite,myFavorit
          deleteFavorite(id);
       }else{
          setIsFav(true);
-         addFavorite({id,name,gender,image,onClose,addFavorite,deleteFavorite})
+         addFavorite({id,name,gender,image,onClose})
       }
    }
 
