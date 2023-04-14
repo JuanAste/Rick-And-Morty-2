@@ -10,6 +10,7 @@ export default function SearchBar({onSearch}) {
       <div className={style.arow} >
          <input className={style.search} type='search' onChange={handleChange}/>
          <button className={style.agregar} onClick={() => onSearch(id)}>Agregar</button>
+         <button className={style.agregar} onClick={() => onSearch(Math.floor(Math.random() * 826))}>?</button>
       </div>
    );
 }

@@ -5,6 +5,7 @@ export const FILTER = "FILTER";
 export const ORDER = "ORDER";
 export const REMOVE_FAV = "REMOVE_FAV";
 
+
 export const addFavorite = (character) => {
   const endpoint = "http://localhost:3001/rickandmorty/fav";
   return async (dispatch) => {
@@ -15,7 +16,7 @@ export const addFavorite = (character) => {
         payload: data,
       });
     } catch (error) {
-      alert('Error al agregar a favoritos');
+      alert("Error al agregar a favoritos");
     }
   };
 };
@@ -30,7 +31,7 @@ export const deleteFavorite = (id) => {
         payload: data,
       });
     } catch (error) {
-      alert('Error al eliminar favorito');
+      alert("Error al eliminar favorito");
     }
   };
 };
@@ -53,7 +54,8 @@ export function removeFav(id) {
         payload: data,
       });
     } catch (error) {
-      alert('Error al eliminar favorito');
+      alert("Error al eliminar favorito");
     }
   };
 }
+
