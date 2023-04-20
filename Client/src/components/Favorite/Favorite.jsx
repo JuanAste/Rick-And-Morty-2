@@ -47,7 +47,7 @@ const Favorite = ({ onClose }) => {
       <div className={style.favoriteDiv}>
         {favorites.map(({ id, name, gender, image }) => {
           return (
-            <div>
+            <div key={id}>
               <Card
                 key={id}
                 id={id}

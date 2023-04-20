@@ -3,7 +3,7 @@ import axios from "axios";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import Cards from "./components/Cards/Cards";
 import Nav from "./components/Nav/Nav";
-import Deatil from "./components/Deatil/Deatil";
+import Deatil from "./components/Details/Details";
 import About from "./components/About/About";
 import NotFound from "./components/NotFound/NotFound";
 import Form from "./components/Form/Form";

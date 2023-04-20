@@ -42,8 +42,8 @@ const rootReducer = (state = inicialState, action) => {
         ...state,
         myFavorites:
           action.payload === "A"
-            ? state.allCharacters.sort((a, b) => a.id - b.id)
-            : state.allCharacters.sort((a, b) => b.id - a.id),
+            ? state.myFavorites.sort((a, b) => a.id - b.id)
+            : state.myFavorites.sort((a, b) => b.id - a.id),
       };
     case REMOVE_FAV:
       return {
