@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { addFavorite, deleteFavorite } from '../../Redux/actions';
 import style from './Card.module.css'
 
-function Card({id,name,gender,image,onClose,addFavorite,deleteFavorite,myFavorites}) {
+function Card({id,name,gender,image,onClose,addFavorite,deleteFavorite,myFavorites, fav}) {
 
    const [isFav, setIsFav] = useState(false);
 
@@ -14,7 +14,7 @@ function Card({id,name,gender,image,onClose,addFavorite,deleteFavorite,myFavorit
          deleteFavorite(id);
       }else{
          setIsFav(true);
-         addFavorite({id,name,gender,image,onClose})
+         addFavorite({id,name,gender,image})
       }
    }
 
@@ -36,7 +36,8 @@ function Card({id,name,gender,image,onClose,addFavorite,deleteFavorite,myFavorit
             )
          }
          <h2>ID: {id}</h2>
-         <button className={style.favoriteButton} onClick={() => onClose(id)}>X</button>
+         {!fav ?
+         <button className={style.favoriteButton} onClick={() => onClose(id)}>X</button> : null}
       </div>
          <img className={style.img} src={image} alt='' />
          <h2 className="card-name">{name}</h2>

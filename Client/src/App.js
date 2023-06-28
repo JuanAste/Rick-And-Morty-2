@@ -18,11 +18,14 @@ function App() {
 
   useEffect(() => {
     !access && navigate("/");
-  }, [access]);
+  }, [access, navigate]);
 
   const onSearch = async (id) => {
-    if (characters.find((char) => char.id == id)) {
+    if (characters.find((char) => char.id === id)) {
       return alert("personaje repetido");
+    }
+    if (!id) {
+      alert("¡No has ingresado ningun numero de carta!");
     }
 
     try {
@@ -45,17 +48,33 @@ function App() {
 
   const login = async (userData) => {
     const { email, password } = userData;
-    const URL = "http://localhost:3001/rickandmorty/login/";
+    const URL = "http://localhost:3001/rickandmorty/login";
 
     try {
-      const { data } = await axios(
+      const { data } = await axios.get(
         `${URL}?email=${email}&password=${password}`
       );
       const { access } = data;
       setAccess(data);
       access && navigate("/home");
     } catch (error) {
-      alert("Error al iniciar sesión");
+      alert("No has creado una cuenta");
+    }
+  };
+
+  const singUp = async (userData) => {
+    const { email, password } = userData;
+    const URL = "http://localhost:3001/rickandmorty/singUp";
+
+    try {
+      const { data } = await axios.post(
+        `${URL}?email=${email}&password=${password}`
+      );
+      const { access } = data;
+      setAccess(data);
+      access && navigate("/home");
+    } catch (error) {
+      alert("Error al crear cuenta");
     }
   };
 
@@ -70,7 +89,7 @@ function App() {
     <div className={style.App}>
       {pathname !== "/" && <Nav onSearch={onSearch} logOut={logOut} />}
       <Routes>
-        <Route path="/" element={<Form login={login} />} />
+        <Route path="/" element={<Form login={login} singUp={singUp} />} />
         <Route
           path="/home"
           element={<Cards characters={characters} onClose={onClose} />}

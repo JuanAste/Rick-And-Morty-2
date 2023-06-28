@@ -1,16 +1,21 @@
-let myFavorites = [];
+const { Favorite } = require("../DB_connection");
 
-const postFav = (req, res) => {
-  const {id} = req.body;
-  myFavorites = myFavorites.filter((favo)=> favo.id != id)
-  myFavorites.push(req.body);
-  res.status(200).json(myFavorites);
+const postFav = async (req, res) => {
+  const character = req.body;
+  const fav = await Favorite.findOne({ where: { id: character.id } });
+  if(!fav){
+    await Favorite.create(character);
+  }
+  const allFav = await Favorite.findAll();
+
+  res.status(200).json(allFav);
 };
 
-const deleteFav = (req, res) => {
+const deleteFav = async (req, res) => {
   const { id } = req.params;
-  myFavorites = myFavorites.filter((char) => char.id != id);
-  res.status(200).json(myFavorites);
+  await Favorite.destroy({ where: { id } });
+  const allFav = await Favorite.findAll();
+  res.status(200).json(allFav);
 };
 
 module.exports = { postFav, deleteFav };

@@ -25,15 +25,15 @@ const Favorite = ({ onClose }) => {
 
   return (
     <div>
-      <div>
-        <select onChange={handleOrder}>
+      <div className={style.filtros} >
+        <select className={style.select} onChange={handleOrder}>
           <option value="order" disabled="disable">
             Order by:
           </option>
-          <option value="A">Ascendente</option>
-          <option value="D">Decendente</option>
+          <option value="A">Upward</option>
+          <option value="D">descending</option>
         </select>
-        <select onChange={handleFilter}>
+        <select className={style.select} style={{marginLeft:"50px"}} onChange={handleFilter}>
           <option value="order" disabled="disable">
             Filter by:
           </option>
@@ -55,6 +55,7 @@ const Favorite = ({ onClose }) => {
                 gender={gender}
                 image={image}
                 onClose={() => closeFavorite(id)}
+                fav={true}
               />
             </div>
           );

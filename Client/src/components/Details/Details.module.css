@@ -1,9 +1,23 @@
-.container{
-    background-color: rgb(41, 39, 39);
-    border-radius: 8px;
-    width: 900px;
-    color: white;
-    border: 2px solid rgb(17, 170, 55);
-    display: flex;
-    justify-content: center;
+.container {
+  background-color: rgb(41, 39, 39);
+  border-radius: 8px;
+  color: white;
+  border: 2px solid rgb(17, 170, 55);
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+  margin-left: 12%;
+  width: 1000px;
+  height: 500px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.img {
+  width: 400px;
+  height: 500px;
 }

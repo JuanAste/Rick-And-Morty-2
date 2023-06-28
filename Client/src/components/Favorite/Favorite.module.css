@@ -7,3 +7,18 @@
   justify-content: space-around;
 }
 
+.filtros {
+  display: flex;
+  margin-left: 37%;
+  flex-wrap: wrap;
+}
+
+.select {
+  margin-top: 20px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #333;
+  font-size: 14px;
+}

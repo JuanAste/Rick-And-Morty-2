@@ -25,14 +25,14 @@ const Deatil = () => {
       {character.name ? (
         <>
           <div>
-            <img src={character.image} alt="" />
+            <img className={style.img} src={character.image} alt="" />
           </div>
-          <div>
-            <h2>{character.name}</h2>
-            <p>{character.status}</p>
-            <p>{character.species}</p>
-            <p>{character.gender}</p>
-            <p>Origin: {character.origin?.name}</p>
+          <div className={style.info}>
+            <h1>Name: {character.name}</h1>
+            <h3>Status: {character.status}</h3>
+            <h3>Specie: {character.species}</h3>
+            <h3>Gender: {character.gender}</h3>
+            <h3>Origin: {character.origin?.name}</h3>
           </div>
         </>
       ) : (
